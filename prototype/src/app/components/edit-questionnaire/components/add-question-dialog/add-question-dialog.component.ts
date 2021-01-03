@@ -12,28 +12,53 @@ import { QuestionService } from 'src/app/services/question.service';
 export class AddQuestionDialogComponent implements OnInit {
 
   form: FormGroup;
+  questionTypes: String[] = [];
+  currentForm = "";
+  choices: String[] = [];
+  currentChoice: string = "";
 
   constructor(private fb: FormBuilder,
     private dialogRef: MatDialogRef<AddQuestionDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) question:  Question) { }
+    @Inject(MAT_DIALOG_DATA) question:  Question, private questionService: QuestionService) { }
 
   ngOnInit(): void {
     this.form = this.fb.group({
       category: '',
       titel: '',
       answerType: '',
-      answerOption: '',
+      start: 0,
+      end: 0,
+      step: 0,
+      choices: [],
       weight: 0,
     });
+    this.questionTypes = this.questionService.questionTypes;
   }
 
   save() {
     this.dialogRef.close(this.form.value);
-    console.log(this.form)
-}
+  }
 
-close() {
-    this.dialogRef.close();
-}
+  close() {
+      this.dialogRef.close();
+  }
+
+  changeType(event: string) {
+    this.form.controls['answerType'].setValue(event);
+    this.currentForm = event;
+  }
+
+  addOption() {
+  }
+
+  saveOption() {
+    this.choices.push(this.currentChoice);
+    this.form.controls['choices'].setValue(this.choices);
+  }
+
+  deleteChoice(choice: string) {
+    this.choices = this.choices.filter(c => c !== choice);
+    this.form.controls['choices'].setValue(this.choices);
+  }
 
 }

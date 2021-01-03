@@ -9,14 +9,28 @@ import { Observable, of } from 'rxjs';
 export class QuestionService {
 
   mockQuestions = MockQuestions;
+  categories: String[] = [];
+  questionTypes: String[] = ['boolean', 'multipleChoice', 'numberRange'];
 
-  constructor() { }
+  constructor() { 
+    this.categories = [...new Set(this.mockQuestions.map(item => item.category))];
+  }
 
   getQuestions(): Observable<Question[]> {
     return of(this.mockQuestions);
   }
 
+  getCategories(): Observable<String[]> {
+    return of(this.categories);
+  }
+
+  getQuestionsByCategory(category: string) {
+    return(this.mockQuestions.filter(question => question.category === category));
+  }
+
   addQuestion(question: Question): void {
     this.mockQuestions.push(question);
+    this.categories.push(question.category);
   }
+  
 }

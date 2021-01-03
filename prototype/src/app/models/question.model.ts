@@ -5,7 +5,18 @@ export interface Question {
     category: string;
     titel: string;
     answerType: string;
-    answerOption: string;
+    start: number;
+    end: number;
+    step: number;
+    choices: string[];
     weight: number;
     //remedy: Remedy;
   }
+
+  // export interface AnswerOption {
+  //   type: string;
+  //   start: number;
+  //   end: number;
+  //   step: number;
+  //   choices: string[];
+  // }

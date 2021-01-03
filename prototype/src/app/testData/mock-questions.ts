@@ -5,7 +5,10 @@ export const MockQuestions: Question[] = [
     category: 'Energy',
     titel: 'Are you driving an electric car?',
     answerType: 'boolean',
-    answerOption: ' ',
+    start: 1,
+    end: 10,
+    step: 1,
+    choices: [],
     weight: 4,
     }
   ];

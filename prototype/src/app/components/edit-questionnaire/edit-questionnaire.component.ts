@@ -14,17 +14,26 @@ import { AddQuestionDialogComponent } from './components/add-question-dialog/add
 export class EditQuestionnaireComponent implements OnInit {
 
   public questions: Question[] = [];
-  test = '';
+  public categories: String[] = [];
+  public questionTypes: String[] = [];
+  
 
   constructor(private questionService: QuestionService, private dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.getQuestions();
+    this.getCategories();
+    this.questionTypes = this.questionService.questionTypes;
   }
 
   getQuestions(): void {
     this.questionService.getQuestions()
         .subscribe(questions => this.questions = questions);
+  }
+
+  getCategories(): void {
+    this.questionService.getCategories()
+        .subscribe(categories => this.categories = categories);
   }
 
   addQuestion() {
@@ -38,7 +47,7 @@ export class EditQuestionnaireComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(
       data => this.questionService.addQuestion(data)
-  );  
+    );  
 }
 
 }

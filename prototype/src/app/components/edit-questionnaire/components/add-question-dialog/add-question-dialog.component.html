@@ -15,16 +15,41 @@
     </mat-form-field>
 
     <mat-form-field>
-        <input matInput
-                placeholder="Answer Type"
-               formControlName="answerType">
+        <mat-select placeholder="Question Type" (selectionChange)="changeType($event.value)">
+                <mat-option *ngFor="let type of questionTypes" [value]="type">
+                  {{type}}
+                </mat-option>
+        </mat-select>
     </mat-form-field>
 
-    <mat-form-field>
-        <input matInput
-                placeholder="Answer Option"
-               formControlName="answerOption">
-    </mat-form-field>
+    <div *ngIf="currentForm == 'numberRange'">
+        <mat-form-field>
+            <input matInput
+                placeholder="Range Start"
+                formControlName="start">
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput
+                placeholder="Range End"
+                formControlName="end">
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput
+                placeholder="Steps"
+                formControlName="step">
+        </mat-form-field>
+    </div>
+
+    <div *ngIf="currentForm == 'multipleChoice'">
+        <div>
+            <input matInput placeholder="Add multiple choice option" [(ngModel)]='currentChoice'
+            [ngModelOptions]="{standalone: true}">
+            <button (click)="saveOption()">save</button>
+        </div>
+        <button *ngFor="let choice of choices">{{choice}} <span (click)="deleteChoice(choice)"> X </span></button>
+    </div>
 
     <mat-form-field>
         <input matInput
