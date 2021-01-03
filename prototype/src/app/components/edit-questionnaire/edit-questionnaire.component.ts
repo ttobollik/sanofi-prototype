@@ -1,24 +1,22 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { QuestionService } from 'src/app/services/question.service';
 import { Question } from 'src/app/models/question.model';
-import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatDialogConfig } from '@angular/material/dialog';
+import { AddQuestionDialogComponent } from './components/add-question-dialog/add-question-dialog.component';
 
-export interface DialogData {
-  animal: string;
-  name: string;
-}
 
 @Component({
   selector: 'app-edit-questionnaire',
   templateUrl: './edit-questionnaire.component.html',
   styleUrls: ['./edit-questionnaire.component.css']
 })
+
 export class EditQuestionnaireComponent implements OnInit {
 
   public questions: Question[] = [];
   test = '';
 
-  constructor(private questionService: QuestionService, public dialog: MatDialog) { }
+  constructor(private questionService: QuestionService, private dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.getQuestions();
@@ -30,31 +28,17 @@ export class EditQuestionnaireComponent implements OnInit {
   }
 
   addQuestion() {
-    const dialogRef = this.dialog.open(DialogContentExampleDialog, {
-      width: '250px',
-      data: {name: 'peter', animal: 'unicorn'}
-    });
 
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-      this.test = result;
-    });
-    
-  }
+    const dialogConfig = new MatDialogConfig();
+
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+
+    const dialogRef = this.dialog.open(AddQuestionDialogComponent, dialogConfig);
+
+    dialogRef.afterClosed().subscribe(
+      data => this.questionService.addQuestion(data)
+  );  
 }
 
-
-@Component({
-  selector: 'dialog-content-example-dialog',
-  templateUrl: 'dialog-content-example-dialog.html',
-})
-export class DialogContentExampleDialog {
-
-  constructor(
-    public dialogRef: MatDialogRef<EditQuestionnaireComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: DialogData) {}
-
-  onNoClick(): void {
-    this.dialogRef.close();
-  }
 }
