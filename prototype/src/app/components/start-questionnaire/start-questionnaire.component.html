@@ -1,1 +1,7 @@
-<p>start-questionnaire works!</p>
+<p>{{categories[currentCategory]}}</p>
+<div *ngFor="let question of getQuestionByCategory(categories[currentCategory])">
+    <p>{{question.titel}}</p>
+</div>
+
+<button (click)=nextPage() *ngIf="currentCategory !== categories.length">{{ currentCategory === categories.length-1 ? 'Finish' : 'Next'}}</button>
+<p *ngIf="currentCategory === categories.length">You are done</p>

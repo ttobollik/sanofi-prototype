@@ -1,7 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { QuestionService } from 'src/app/services/question.service';
 import { Question } from 'src/app/models/question.model';
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatDialogConfig } from '@angular/material/dialog';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { AddQuestionDialogComponent } from './components/add-question-dialog/add-question-dialog.component';
 
 

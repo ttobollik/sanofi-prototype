@@ -9,8 +9,8 @@ import { Observable, of } from 'rxjs';
 export class QuestionService {
 
   mockQuestions = MockQuestions;
-  categories: String[] = [];
-  questionTypes: String[] = ['boolean', 'multipleChoice', 'numberRange'];
+  categories: string[] = [];
+  questionTypes: string[] = ['boolean', 'multipleChoice', 'numberRange', 'number'];
 
   constructor() { 
     this.categories = [...new Set(this.mockQuestions.map(item => item.category))];
@@ -20,12 +20,13 @@ export class QuestionService {
     return of(this.mockQuestions);
   }
 
-  getCategories(): Observable<String[]> {
+  getCategories(): Observable<string[]> {
     return of(this.categories);
   }
 
   getQuestionsByCategory(category: string) {
-    return(this.mockQuestions.filter(question => question.category === category));
+    const questions= (this.mockQuestions.filter(question => question.category === category));
+    return questions;
   }
 
   addQuestion(question: Question): void {
