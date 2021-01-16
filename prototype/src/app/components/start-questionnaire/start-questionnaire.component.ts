@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AnswerService } from 'src/app/services/answer.service';
 import { QuestionService } from 'src/app/services/question.service';
-import { Question } from 'src/app/models/question.model';
 
 @Component({
   selector: 'app-start-questionnaire',
@@ -11,8 +11,10 @@ export class StartQuestionnaireComponent implements OnInit {
 
   categories: string[] = [];
   currentCategory = 0;
+  answer;
+  progress = 0;
 
-  constructor(private questionService: QuestionService) { }
+  constructor(private questionService: QuestionService, private answerService: AnswerService) { }
 
   ngOnInit(): void {
     this.getCategories();
@@ -23,12 +25,18 @@ export class StartQuestionnaireComponent implements OnInit {
         .subscribe(categories => this.categories = categories);
   }
 
+  getAnswer(): void {
+    this.answerService.getAnswers()
+        .subscribe(answer => this.answer = answer);
+  }
+
   getQuestionByCategory(category: string) {
     return this.questionService.getQuestionsByCategory(category);
   }
 
   nextPage() {
     this.currentCategory +=1;
-  }
+    this.progress = Math.floor((this.currentCategory/ this.categories.length)*100);
+    }
 
 }

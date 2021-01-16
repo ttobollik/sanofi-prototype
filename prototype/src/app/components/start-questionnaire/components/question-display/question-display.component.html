@@ -1,0 +1,34 @@
+<mat-card>
+    <mat-card-header>
+      <mat-card-title>{{currentQuestion.title}}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div *ngIf="currentQuestion.answerType === 'numberRange'">
+        <span>{{currentQuestion.start}}</span>
+        <mat-slider min="{{currentQuestion.start}}" max="{{currentQuestion.end}}" step="currentQuestion.step" thumbLabel [(ngModel)]="value" (input)="addQuestion($event.value)"></mat-slider>
+        <span>{{currentQuestion.end}}</span>
+      </div>
+
+      <div *ngIf="currentQuestion.answerType === 'boolean'">
+        <mat-radio-group aria-label="Select an option">
+          <mat-radio-button value="1" (input)="addQuestion('true')">Yes</mat-radio-button>
+          <mat-radio-button value="0" (input)="addQuestion('false')">No</mat-radio-button>
+        </mat-radio-group>
+      </div>
+
+      <div *ngIf="currentQuestion.answerType === 'multipleChoice'">
+        <ul>
+          <li *ngFor="let item of choices">
+            <mat-checkbox [checked]="item.selected" (change)=updateChoices(item.name)>
+              {{item.name}} {{item.selected}}
+            </mat-checkbox>
+          </li>
+        </ul>
+      </div>
+
+      <div *ngIf="currentQuestion.answerType === 'number'">
+        <input type="number" matInput [(ngModel)]="value" placeholder="0" (change)="addQuestion(false)">
+      </div>
+    </mat-card-content>
+
+</mat-card>

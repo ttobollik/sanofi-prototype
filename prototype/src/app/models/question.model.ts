@@ -3,7 +3,7 @@ import { Remedy } from './remedy.model';
 export interface Question {
     id: number;
     category: string;
-    titel: string;
+    title: string;
     answerType: string;
     start: number;
     end: number;

@@ -24,7 +24,7 @@ export class AddQuestionDialogComponent implements OnInit {
   ngOnInit(): void {
     this.form = this.fb.group({
       category: '',
-      titel: '',
+      title: '',
       answerType: '',
       start: 0,
       end: 0,

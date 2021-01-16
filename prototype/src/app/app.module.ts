@@ -13,8 +13,15 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
+import { MatCardModule } from '@angular/material/card';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { MatSliderModule } from '@angular/material/slider';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { AddQuestionDialogComponent } from './components/edit-questionnaire/components/add-question-dialog/add-question-dialog.component';
+import { QuestionDisplayComponent } from './components/start-questionnaire/components/question-display/question-display.component';
+import { HeaderComponent } from './components/start-questionnaire/components/header/header.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +29,9 @@ import { AddQuestionDialogComponent } from './components/edit-questionnaire/comp
     EditQuestionnaireComponent,
     StartQuestionnaireComponent,
     HomeComponent,
-    AddQuestionDialogComponent
+    AddQuestionDialogComponent,
+    QuestionDisplayComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +43,12 @@ import { AddQuestionDialogComponent } from './components/edit-questionnaire/comp
     MatInputModule,
     FormsModule,
     ReactiveFormsModule,
-    MatSelectModule
+    MatSelectModule,
+    MatCardModule,
+    MatSliderModule,
+    MatRadioModule,
+    MatCheckboxModule,
+    MatProgressBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

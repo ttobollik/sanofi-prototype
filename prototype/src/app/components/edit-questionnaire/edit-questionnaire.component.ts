@@ -48,6 +48,6 @@ export class EditQuestionnaireComponent implements OnInit {
     dialogRef.afterClosed().subscribe(
       data => this.questionService.addQuestion(data)
     );  
-}
+  }
 
 }
