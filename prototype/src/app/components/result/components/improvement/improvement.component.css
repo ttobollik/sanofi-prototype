@@ -1,13 +1,11 @@
 .red {
-    color: rgb(151, 0, 0);
-}
-
-.yellow {
-    color: rgb(255, 187, 0);
+    color: #E3A26E;
+    text-align: left;
 }
 
 .green {
-    color: green;
+    color: #3a7461;
+    text-align: left;
 }
 
 .flex-container {
@@ -16,7 +14,33 @@
 }
 
 .explanation {
-    width: 70%;
+    width: 60%;
     text-align: left;
     margin-right: 20px;
+}
+
+.icon{
+    width: 20%; 
+    align-content: center;
+}
+
+.icon > img{
+    width: 35%; 
+    height: auto;
+}
+
+.mat-card {
+    margin-top: 20px;
+}
+
+.title {
+    color: #4e5855;
+}
+
+.exp{
+    color: #8ca09a;
+}
+
+.exchange{
+    padding-left: 30px;
 }

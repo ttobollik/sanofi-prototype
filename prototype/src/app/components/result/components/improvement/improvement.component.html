@@ -1,12 +1,18 @@
-<h2 class="{{improvementType}}">{{title}}</h2>
-<div *ngFor="let improvement of improvements" class="flex-container">
-    <div class="explanation">
-        <h2>{{improvement.title}}</h2>
-        <p>{{improvement.explanation}}</p>
+<mat-card>
+    <h2 class="{{improvementType}}">{{title}}</h2>
+    <div *ngFor="let improvement of improvements" class="flex-container">
+            <div class="explanation">
+                <h3 class="title" >{{improvement.title}}</h3>
+                <p class="exp">{{improvement.explanation}}</p>
+            </div>
+            <div class="icon">
+                <img src="{{getImage(improvement.icon)}}" alt="Italian Trulli">
+                <div>
+                    0
+                    <mat-slider min="0" max="10" step="1" value="5" thumbLabel></mat-slider>
+                    10
+                </div>
+            </div>
     </div>
-    <div>
-        <h2>{{improvement.icon}}</h2>
-        <p>{{improvement.type}}</p>
-    </div>
-</div>
+</mat-card>
 

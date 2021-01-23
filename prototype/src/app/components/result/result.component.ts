@@ -10,6 +10,7 @@ export class ResultComponent implements OnInit {
 
 
   improvements : any[];
+  total = 0;
 
   constructor(private improvementService: ImprovementService) { }
 
@@ -19,22 +20,9 @@ export class ResultComponent implements OnInit {
 
   getImprovements() {
     this.improvementService.getImprovements()
-        .subscribe(improvement => this.improvements = improvement);
+        .subscribe(improvement => {
+          this.improvements = improvement;
+          this.total = this.improvementService.getTotalScore();
+        });
   }
-
-  /* TODO
-  - add exclude to improvement to allow someone to exclude sth
-  - pick from different list
-  - add dynamic result to be shown on top
-  - add real data
-  - add mock result to be faster in dev
-  - add icons
-  - add sliders or similar to result
-  - add see questionnaire
-  - add export
-  - design well
-  - see use case and how to hand in
-  */
-
-
 }

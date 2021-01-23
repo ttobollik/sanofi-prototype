@@ -1,0 +1,33 @@
+/* @import '~@angular/material/theming';
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat-core();
+
+
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$sanofi-app-primary: mat-color(3E1D6CF), 100;
+$sanofi-app-secondary: #787468;
+$sanofi-app-accent:  (#E1C2AB, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$sanofi-app-warn: #E3A26E;
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as `color` or `typography`.
+$sanofi-app-theme: mat-light-theme((
+  color: (
+    primary: $sanofi-app-primary,
+    secondary: $sanofi-app-secondary,
+    accent: $sanofi-app-accent,
+    warn: $sanofi-app-warn,  
+  )
+));
+
+
+@include angular-material-theme($sanofi-app-theme); */

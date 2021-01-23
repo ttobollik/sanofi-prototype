@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { ImprovementService } from 'src/app/services/improvement.service';
 
 @Component({
   selector: 'app-improvement',
@@ -9,12 +10,24 @@ export class ImprovementComponent implements OnInit {
 
   @Input() improvementType;
   @Input() improvements;
+  allImprovements;
+
+  selected;
+
   title = '';
 
-  constructor() { }
+  constructor(private improvementService: ImprovementService) { }
 
   ngOnInit(): void {
     this.determineTitleText();
+    this.getImprovements();
+  }
+
+  getImprovements() {
+    this.improvementService.getImprovements()
+        .subscribe(improvement => {
+          this.allImprovements = improvement;
+        });
   }
 
   determineTitleText() {
@@ -31,6 +44,10 @@ export class ImprovementComponent implements OnInit {
       default:
         this.title = 'Unknown improvement';
     }
+  }
+
+  getImage(icon: string) {
+    return '../../../../../assets/'+icon+'.png';
   }
 
 

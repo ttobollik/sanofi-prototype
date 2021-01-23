@@ -1,7 +1,5 @@
 .all {
-    padding-top: 20px;
-    padding-left: 60px;
-    padding: 20px 60px 0px 60px;
+    padding: 0px 60px 0px 60px;
 }
 
 .question {
@@ -16,9 +14,18 @@
 .category {
     color: #3f3d36;
     padding-top: 20px;
+    text-align: center;
 }
 
 a {
     text-decoration: none;
     color: white;
+}
+
+.questions{
+    padding: 0% 25% 0% 25%;
+}
+
+.question-width{
+    width: 100%;
 }

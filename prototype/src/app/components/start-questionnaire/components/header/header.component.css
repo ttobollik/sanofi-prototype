@@ -9,3 +9,12 @@
 .progress {
     color: #c5bbb5;
 }
+
+.header {
+    background-color: white;
+    padding-top: 20px;
+}
+
+.progessBar{
+    padding: 0% 10% 0% 10%;
+}

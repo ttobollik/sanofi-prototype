@@ -5,4 +5,5 @@ export interface Improvement {
     icon: string;
     type: string;
     score: number;
+    order: number;
   }

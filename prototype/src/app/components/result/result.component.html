@@ -1,6 +1,5 @@
 <div class="result">
-    <app-overall-score></app-overall-score>
+    <app-overall-score [score]="total"></app-overall-score>
     <app-improvement [improvementType]="'red'" [improvements]="improvements.slice(0,2)"></app-improvement>
-    <app-improvement [improvementType]="'yellow'"></app-improvement>
     <app-improvement [improvementType]="'green'" [improvements]="improvements.slice(improvements.length-2,improvements.length+1)"></app-improvement>
 </div>
