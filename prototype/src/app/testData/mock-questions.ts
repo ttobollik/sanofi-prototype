@@ -10,6 +10,7 @@ export const MockQuestions: Question[] = [
     step: 1,
     choices: [],
     weight: 4,
+    improvement: 0,
     },
     {id: 1,
       category: 'Food',
@@ -20,6 +21,7 @@ export const MockQuestions: Question[] = [
       step: 1,
       choices: [],
       weight: 2,
+      improvement: 0,
     },
     {id: 2,
       category: 'Energy',
@@ -30,6 +32,7 @@ export const MockQuestions: Question[] = [
       step: 1,
       choices: [],
       weight: 2,
+      improvement: 1,
     },
     {id: 3,
       category: 'Mobility',
@@ -39,6 +42,7 @@ export const MockQuestions: Question[] = [
       end: 10,
       step: 1,
       choices: ['Dog', 'Cat', 'Elephant'],
-      weight: 2,
+      weight: 10,
+      improvement: 2,
     }
   ];

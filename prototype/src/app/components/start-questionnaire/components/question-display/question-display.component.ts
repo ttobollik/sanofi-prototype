@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Question } from 'src/app/models/question.model';
 import { AnswerService } from 'src/app/services/answer.service';
-import { BehaviorSubject } from 'rxjs';
+
 
 @Component({
   selector: 'app-question-display',
@@ -14,8 +14,7 @@ export class QuestionDisplayComponent implements OnInit {
   value;
   choices = [];
   currentChoice = [];
-  //private value = new BehaviorSubject<any>("");
-  //messageSource = this.value.asObservable();
+
 
   constructor(private answerService: AnswerService) { }
 
@@ -38,13 +37,24 @@ export class QuestionDisplayComponent implements OnInit {
     this.addQuestion(this.currentChoice);
   }
 
+  calculateValue(inputValue) {
+    let value = 0;
+    if (this.currentQuestion.answerType === 'multipleChoice') {
+      value = this.currentQuestion.weight * (this.currentChoice.filter(x => x.selected === true)).length;
+    } else if (this.currentQuestion.answerType === 'number' || this.currentQuestion.answerType === 'numberRange') {
+      value = this.currentQuestion.weight * inputValue;
+    } else if (this.currentQuestion.answerType === 'boolean') {
+      value = inputValue === 'true' ? this.currentQuestion.weight : 0; 
+    }
+    return value;
+  }
+
   addQuestion(value) {
     if (value) {
-      this.answerService.addAnswer(this.currentQuestion.id, value);
+      this.answerService.addAnswer(this.currentQuestion.id, this.calculateValue(value), this.currentQuestion.improvement);
     } else {
-      this.answerService.addAnswer(this.currentQuestion.id, this.value);
+      this.answerService.addAnswer(this.currentQuestion.id, this.calculateValue(this.value), this.currentQuestion.improvement);
     }
-
   }
 
 

@@ -1,0 +1,12 @@
+<h2 class="{{improvementType}}">{{title}}</h2>
+<div *ngFor="let improvement of improvements" class="flex-container">
+    <div class="explanation">
+        <h2>{{improvement.title}}</h2>
+        <p>{{improvement.explanation}}</p>
+    </div>
+    <div>
+        <h2>{{improvement.icon}}</h2>
+        <p>{{improvement.type}}</p>
+    </div>
+</div>
+

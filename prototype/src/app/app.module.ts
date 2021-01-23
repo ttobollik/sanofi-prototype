@@ -22,6 +22,10 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { AddQuestionDialogComponent } from './components/edit-questionnaire/components/add-question-dialog/add-question-dialog.component';
 import { QuestionDisplayComponent } from './components/start-questionnaire/components/question-display/question-display.component';
 import { HeaderComponent } from './components/start-questionnaire/components/header/header.component';
+import { ResultComponent } from './components/result/result.component';
+import { OverallScoreComponent } from './components/result/components/overall-score/overall-score.component';
+import { ImprovementComponent } from './components/result/components/improvement/improvement.component';
+
 
 @NgModule({
   declarations: [
@@ -31,7 +35,10 @@ import { HeaderComponent } from './components/start-questionnaire/components/hea
     HomeComponent,
     AddQuestionDialogComponent,
     QuestionDisplayComponent,
-    HeaderComponent
+    HeaderComponent,
+    ResultComponent,
+    OverallScoreComponent,
+    ImprovementComponent
   ],
   imports: [
     BrowserModule,

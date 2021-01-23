@@ -1,9 +1,11 @@
-<app-header [progress]="progress"></app-header>
+<div class="all">
+    <app-header [progress]="progress"></app-header>
 
-<p>{{categories[currentCategory]}}</p>
-<div *ngFor="let question of getQuestionByCategory(categories[currentCategory])">
-    <app-question-display [currentQuestion]="question"></app-question-display>
+    <h2 class="category">{{categories[currentCategory]}}</h2>
+    <div *ngFor="let question of getQuestionByCategory(categories[currentCategory])" class="question">
+        <app-question-display [currentQuestion]="question"></app-question-display>
+    </div>
+
+    <button mat-raised-button (click)=nextPage() *ngIf="currentCategory !== categories.length-1">Next</button>
+    <button mat-raised-button class="finish" *ngIf="currentCategory === categories.length-1"><a routerLink="../result-component" routerLinkActive="active">Finish</a></button>
 </div>
-
-<button (click)=nextPage() *ngIf="currentCategory !== categories.length">{{ currentCategory === categories.length-1 ? 'Finish' : 'Next'}}</button>
-<p *ngIf="currentCategory === categories.length">You are done</p>

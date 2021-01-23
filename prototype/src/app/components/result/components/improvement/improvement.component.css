@@ -1,0 +1,22 @@
+.red {
+    color: rgb(151, 0, 0);
+}
+
+.yellow {
+    color: rgb(255, 187, 0);
+}
+
+.green {
+    color: green;
+}
+
+.flex-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.explanation {
+    width: 70%;
+    text-align: left;
+    margin-right: 20px;
+}

@@ -14,10 +14,10 @@ export class AnswerService {
     return of(this.answers);
   }
 
-  addAnswer(questionId: number, answer: any): void {
+  addAnswer(questionId: number, answer: any, improvementId: number): void {
     const index = this.answers.map(x => {return x.id; }).indexOf(questionId);;
     if (index === -1) {
-      this.answers = [...this.answers, {'id': questionId, 'answer': answer}];
+      this.answers = [...this.answers, {'id': questionId, 'score': answer, 'improvementId': improvementId}];
     } else {
       this.answers = this.answers.map(x => {
         if (x.id === questionId) {
@@ -26,6 +26,5 @@ export class AnswerService {
         return x;
       })
     }
-    console.log(this.answers);
   }
 }

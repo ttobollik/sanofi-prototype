@@ -1,0 +1,24 @@
+.all {
+    padding-top: 20px;
+    padding-left: 60px;
+    padding: 20px 60px 0px 60px;
+}
+
+.question {
+    display: flex;
+    margin: 15px 0px 15px 0px;
+}
+
+.finish {
+    background-color: #E3A26E;
+}
+
+.category {
+    color: #3f3d36;
+    padding-top: 20px;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}

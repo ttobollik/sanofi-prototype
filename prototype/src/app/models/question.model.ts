@@ -1,4 +1,4 @@
-import { Remedy } from './remedy.model';
+import { Improvement } from './improvement.model';
 
 export interface Question {
     id: number;
@@ -10,13 +10,6 @@ export interface Question {
     step: number;
     choices: string[];
     weight: number;
-    //remedy: Remedy;
+    improvement: number;
   }
 
-  // export interface AnswerOption {
-  //   type: string;
-  //   start: number;
-  //   end: number;
-  //   step: number;
-  //   choices: string[];
-  // }

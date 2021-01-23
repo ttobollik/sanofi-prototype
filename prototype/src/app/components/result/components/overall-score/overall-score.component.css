@@ -1,0 +1,36 @@
+.imageContainer {
+    position: relative;
+    text-align: center;
+    color: white;
+    font-size: larger;
+    padding: 20px;
+}
+
+.number {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -100%);
+    font-size: xxx-large;
+}
+
+.logo {
+    width: 13%;
+    height: auto;
+}
+
+.result-ton{
+    padding: 0px;
+    margin: 5px;
+    color:  #49473f;
+}
+
+.light {
+    padding: 0px;
+    margin: 0px;
+    color: #968d88;
+}
+
+.all {
+    padding-bottom: 30px;
+}

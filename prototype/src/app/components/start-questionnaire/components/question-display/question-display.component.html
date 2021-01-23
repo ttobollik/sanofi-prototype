@@ -20,14 +20,14 @@
         <ul>
           <li *ngFor="let item of choices">
             <mat-checkbox [checked]="item.selected" (change)=updateChoices(item.name)>
-              {{item.name}} {{item.selected}}
+              {{item.name}}
             </mat-checkbox>
           </li>
         </ul>
       </div>
 
       <div *ngIf="currentQuestion.answerType === 'number'">
-        <input type="number" matInput [(ngModel)]="value" placeholder="0" (change)="addQuestion(false)">
+        <input type="number" matInput [(ngModel)]="value" placeholder="0" autocomplete="false" (change)="addQuestion(false)">
       </div>
     </mat-card-content>
 
