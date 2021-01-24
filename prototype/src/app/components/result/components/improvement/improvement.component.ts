@@ -48,7 +48,7 @@ export class ImprovementComponent implements OnInit {
   }
 
   getImage(icon: string) {
-    return '../../../../../assets/'+icon+'.png';
+    return 'assets/'+icon+'.png';
   }
 
 
