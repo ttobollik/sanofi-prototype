@@ -28,7 +28,6 @@ export class ImprovementService{
 
   getTotalScore(){
     if (this.totalWeight != 0) {
-      console.log(this.totalWeight);
       return Math.floor(this.totalFraction/this.totalWeight*100);
     } else {
       return 99999;
