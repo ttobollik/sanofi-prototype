@@ -14,6 +14,7 @@ export class ImprovementComponent implements OnInit {
 
   selected;
 
+
   title = '';
 
   constructor(private improvementService: ImprovementService) { }
@@ -27,7 +28,7 @@ export class ImprovementComponent implements OnInit {
     this.improvementService.getImprovements()
         .subscribe(improvement => {
           this.allImprovements = improvement;
-        });
+    });
   }
 
   determineTitleText() {
